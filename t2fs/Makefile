@@ -24,7 +24,7 @@ libt2fs.a:
 	mv libt2fs.a $(LIB_DIR)
 
 t2fs.o:
-	gcc -g -c $(SRC_DIR)t2fs.c -Iinclude -Wall
+	gcc -g -c $(SRC_DIR)/t2fs.c -Iinclude -Wall
 
 clean:
 	rm -rf $(LIB_DIR)/*.a $(BIN_DIR)/*.o $(SRC_DIR)/*~ $(INC_DIR)/*~ *~
