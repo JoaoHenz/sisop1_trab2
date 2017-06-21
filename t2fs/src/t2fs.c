@@ -15,7 +15,7 @@ int identify2 (char *name, int size){
 
 
 FILE2 create2 (char *filename){  // estou bastante confuso 
-	int blocolivre=0;
+	/*int blocolivre=0;
 	int teste;
 	int endbloco = searchBitmap2(blocolivre);
 	
@@ -30,7 +30,7 @@ FILE2 create2 (char *filename){  // estou bastante confuso
 			else
 				return -1;
 
-		}
+		}*/
 }
 
 int delete2 (char *filename){ //TODO

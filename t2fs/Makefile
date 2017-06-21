@@ -27,6 +27,6 @@ t2fs.o:
 	gcc -g -c $(SRC_DIR)/t2fs.c -Iinclude -Wall
 
 clean:
-	rm -rf $(LIB_DIR)/*.a $(BIN_DIR)/*.o $(SRC_DIR)/*~ $(INC_DIR)/*~ *~
+	rm -rf $(LIB_DIR)/*.a ./*.o $(BIN_DIR)/*.o $(SRC_DIR)/*~ $(INC_DIR)/*~ *~
 
 
