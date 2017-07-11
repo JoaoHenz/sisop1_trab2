@@ -1,0 +1,50 @@
+
+
+
+
+------------
+BOOT
+1 bloco
+------------
+MFT
+
+2048 blocos
+------------  <-- disco
+DADOS
+                  
+
+6143 blocos
+
+------------
+
+Mft:
+
+0 - bitmap do bloco de dados
+1 - descritor dir raíz
+2 e 3 - uso futuro???
+4 a 2047 - descritores de dados ou diretórios
+
+Área de Dados
+
+0 a 6142 - Dados ou blocos de indice (caso mft fique cheia)
+
+
+
+
+
+1 volume -> b blocos -> n setores
+S setores no total (S = b*n)
+
+32 768 setores = 8 388 608 bytes = 67 108 864 bits = 8192 KB = 8 MB 
+4 setores por bloco
+= 8192 blocos no volume t2fs
+
+2048 blocos para a MFT
+
+
+volume = (256*4) * b bytes
+bloco = 256*4 bytes
+setor = 256 bytes
+n = 4
+
+o que é o disco?
