@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-static int is_initialized = false;
+int is_initialized = 0;
 struct t2fs_bootBlock bootBlock;
 int inicio_mft;
 int inicio_dados;
@@ -17,13 +17,6 @@ int tamanho_bloco;
 
 static void init(){
 	int flag;
-
-
-	if(is_initialized){
-		return;
-	}else{
-		is_initialized = true;
-	}
 
 	char *buffer_leitura = malloc(SECTOR_SIZE);
 	flag = read_sector(0,(unsigned char *)buffer_leitura);
@@ -47,11 +40,16 @@ static void init(){
 }
 int identify2 (char *name, int size){
 	char *name_aux = "NicolasPessutto242284 JoaoHenz242251";
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
+
 	strcopy(name,name_aux);
 
 	return 0;
 }
-FILE2 create2 (char *filename){  // estou bastante confuso 
+FILE2 create2 (char *filename){  
 	int blocolivre=0;
 	int teste;
 	int endbloco = searchBitmap2(blocolivre);
@@ -64,6 +62,10 @@ FILE2 create2 (char *filename){  // estou bastante confuso
 	char end_arquivo[4];
 	int end_arquivoint;
 	int encontrou=0;
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 
 	char *path = malloc(sizeof(filename));
 	strcpy(path, filename);
@@ -139,64 +141,125 @@ FILE2 create2 (char *filename){  // estou bastante confuso
 
 }
 
-int delete2 (char *filename){ //TODO
+int delete2 (char *filename){ 
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 
-	return ERROR
+	while(path[i]!='\0'){ //se der erro o laço vai dar return ERROR, a execução só sai desse laço se for válido o path
+		encontrou = 0;
+		if (buffer_arquivo)
+			free(buffer_arquivo);
+		j=0;
+		while(path[i]!='/'||path[i]!='\0'){ //NO BUFFER_AUX ESTÁ O NOME A SER TESTADO
+			buffer_aux[j]= path[i];
+			i++; j++;
+		}
+
+
+
+
+	return 0;
 }
 
 FILE2 open2 (char *filename){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 
 	return ERROR
 }
 
 
 int close2 (FILE2 handle){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 
 }
 
 
 int read2 (FILE2 handle, char *buffer, int size){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 }
 
 int write2 (FILE2 handle, char *buffer, int size){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 
 }
 
 int truncate2 (FILE2 handle){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 
 }
 
 int seek2 (FILE2 handle, DWORD offset){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 
 	return ERROR
 }
 
 int mkdir2 (char *pathname){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 
 }
 
 
 int rmdir2 (char *pathname){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 }	
 
 DIR2 opendir2 (char *pathname){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 }
 
 
 int readdir2 (DIR2 handle, DIRENT2 *dentry){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 
 }
 
 
 int closedir2 (DIR2 handle){//TODO
+	if (is_initialized == 0){
+		init();
+		is_initialized = 1;
+	}
 	return ERROR
 }
 
